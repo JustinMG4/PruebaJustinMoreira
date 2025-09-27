@@ -1,0 +1,60 @@
+<div class="profile-container">
+  <div *ngIf="isLoading()" class="spinner-container">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <mat-card *ngIf="!isLoading()" class="profile-card">
+    <mat-card-header>
+      <mat-card-title>Mi Perfil</mat-card-title>
+      <mat-card-subtitle>Gestiona tu información personal y de la cuenta.</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form class="profile-form" [formGroup]="profileForm">
+        <mat-form-field appearance="outline">
+          <mat-label>Nombres</mat-label>
+          <input matInput formControlName="name">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Apellidos</mat-label>
+          <input matInput formControlName="lastName">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre de Usuario</mat-label>
+          <input matInput formControlName="userName">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Email de Contacto</mat-label>
+          <input matInput formControlName="email">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Identificación</mat-label>
+          <input matInput formControlName="identification" readonly>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Email de la Plataforma</mat-label>
+          <input matInput formControlName="platformMail" readonly>
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+
+    <mat-card-actions align="end">
+      <button *ngIf="!isEditMode()" mat-raised-button color="primary" (click)="toggleEditMode(true)">
+        <mat-icon>edit</mat-icon>
+        Editar Perfil
+      </button>
+
+      <div *ngIf="isEditMode()">
+        <button mat-stroked-button (click)="cancelEdit()">Cancelar</button>
+        <button mat-raised-button color="primary" (click)="saveChanges()" [disabled]="profileForm.invalid || isSaving()">
+          <span *ngIf="!isSaving()">
+            <mat-icon>save</mat-icon>
+            Guardar Cambios
+          </span>
+          <mat-spinner *ngIf="isSaving()" diameter="24" color="accent"></mat-spinner>
+        </button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</div>

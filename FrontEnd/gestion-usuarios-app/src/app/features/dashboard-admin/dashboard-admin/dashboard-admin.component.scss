@@ -1,0 +1,63 @@
+// src/app/features/dashboard-admin/dashboard-admin.component.scss
+.dashboard-container {
+  padding: 1rem;
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #1a237e;
+  margin-bottom: 1.5rem;
+}
+
+.stats-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.stat-card {
+  .mat-card-avatar {
+    font-size: 40px;
+    width: 40px;
+    height: 40px;
+    color: #3f51b5;
+  }
+  .mat-card-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+  .mat-card-subtitle {
+    font-size: 1rem;
+  }
+}
+
+.section-title {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.table-container {
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+}
+
+
+.highlight-danger {
+  color: #f44336;
+  font-weight: bold;
+  font-size: 1.1em;
+}

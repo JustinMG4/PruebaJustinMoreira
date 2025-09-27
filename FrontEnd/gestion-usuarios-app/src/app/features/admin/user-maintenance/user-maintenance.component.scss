@@ -1,0 +1,26 @@
+.upload-card {
+  margin-bottom: 2rem;
+}
+
+.upload-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.file-name {
+  font-style: italic;
+  color: #666;
+}
+
+.preview-section {
+  margin-top: 1.5rem;
+}
+
+.preview-table-container {
+  overflow: auto;
+}
+
+mat-divider {
+  margin: 2rem 0;
+}

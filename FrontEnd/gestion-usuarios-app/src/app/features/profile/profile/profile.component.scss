@@ -1,0 +1,33 @@
+// src/app/features/profile/profile.component.scss
+.profile-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
+.profile-card {
+  max-width: 800px;
+  width: 100%;
+}
+
+.profile-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+mat-card-actions {
+  padding: 1rem;
+  
+  div {
+    display: flex;
+    gap: 0.5rem;
+  }
+}

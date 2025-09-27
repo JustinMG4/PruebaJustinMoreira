@@ -1,0 +1,57 @@
+<div class="welcome-container">
+  <div *ngIf="isLoading()" class="spinner-container">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <div *ngIf="!isLoading() && user()" class="content">
+    <h1>¡Bienvenido, {{ user()?.name }}! 👋</h1>
+    <p class="subtitle">Aquí tienes un resumen de tu información y tu última actividad.</p>
+
+    <div class="cards-container">
+      <mat-card class="info-card">
+        <mat-card-header>
+          <mat-card-title>Información Personal</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p><strong>Nombre Completo:</strong> {{ user()?.name }} {{ user()?.lastName }}</p>
+          <p><strong>Identificación:</strong> {{ user()?.identification }}</p>
+          <p><strong>Email Principal:</strong> {{ user()?.email }}</p>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="info-card">
+        <mat-card-header>
+          <mat-card-title>Detalles de la Cuenta</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p><strong>Nombre de Usuario:</strong> {{ user()?.userName }}</p>
+          <p><strong>Correo electrónico de la plataforma:</strong> {{ user()?.platformMail }}</p>
+          <p><strong>Rol:</strong> {{ user()?.roles?.join(', ') }}</p>
+          <p><strong>Fecha de Registro:</strong> {{ formattedFechaRegistro }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <h2 class="section-title">Información de tu Última Sesión</h2>
+    <table mat-table [dataSource]="sessionDataSource" class="mat-elevation-z8 session-table">
+
+      <ng-container matColumnDef="icon">
+        <td mat-cell *matCellDef="let element">
+          <mat-icon>{{element.icon}}</mat-icon>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="concept">
+        <th mat-header-cell *matHeaderCellDef> Concepto </th>
+        <td mat-cell *matCellDef="let element"> {{element.concept}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="value">
+        <th mat-header-cell *matHeaderCellDef> Valor </th>
+        <td mat-cell *matCellDef="let element"> {{element.value}} </td>
+      </ng-container>
+
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>
