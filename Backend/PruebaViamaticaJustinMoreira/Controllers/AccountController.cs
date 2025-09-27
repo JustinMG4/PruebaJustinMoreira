@@ -363,7 +363,7 @@ namespace PruebaViamaticaJustinMoreira.Controllers
             string htmlContent = await System.IO.File.ReadAllTextAsync(path);
 
             htmlContent = htmlContent
-                .Replace("{{dto}}", email)
+                .Replace("{{email}}", email)
                 .Replace("{{token}}", token);
 
             return Content(htmlContent, "text/html");
